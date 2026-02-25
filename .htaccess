@@ -1,0 +1,14 @@
+# Serve apple-app-site-association with correct MIME type for iOS Universal Links
+<Files "apple-app-site-association">
+    ForceType application/json
+    Header set Content-Type "application/json"
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</Files>
+
+# Optional: ensure .well-known folder is accessible
+<Directory "/.well-known/">
+    AllowOverride None
+    Require all granted
+</Directory>
